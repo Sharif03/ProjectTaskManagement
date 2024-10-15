@@ -20,13 +20,11 @@ namespace ProjectManagement.Projects
           CreateUpdateProjectDto>, //Used to create/update a Project
       IProjectAppService //implement the IProjectAppService
     {
-
-
         private readonly IRepository<Project, Guid> _projectRepository;
-        public ProjectAppService(IRepository<Project, Guid> repository)
-            : base(repository)
+        public ProjectAppService(IRepository<Project, Guid> projectRepository)
+            : base(projectRepository)
         {
-            _projectRepository = repository;
+            _projectRepository = projectRepository;
         }
 
         public override async Task<ProjectDto> CreateAsync(CreateUpdateProjectDto input)
