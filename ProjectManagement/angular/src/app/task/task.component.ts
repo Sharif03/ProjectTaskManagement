@@ -4,16 +4,14 @@ import { ProjectTaskService, ProjectTaskDto, projectTaskStatusOptions, ProjectLo
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ConfirmationService, Confirmation } from '@abp/ng.theme.shared';
 import { ProjectFilterRequest } from '../shared/projectFilterRequest'
-import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-projecttask',
-  templateUrl: './projecttask.component.html',
-  styleUrls: ['./projecttask.component.scss'],
+  selector: 'app-task',
+  templateUrl: './task.component.html',
+  styleUrl: './task.component.scss',
   providers: [ListService],
 })
-
-export class ProjecttaskComponent implements OnInit {
+export class TaskComponent implements OnInit {
   projectTask = { items: [], totalCount: 0 } as PagedResultDto<ProjectTaskDto>;
 
   // Store selected projects from dropdown
@@ -148,5 +146,5 @@ sortTasks(field: string) {
         .subscribe(() => {this.isModalOpen = false; this.form.reset(); this.list.get();});
     }
   }
-}
 
+}

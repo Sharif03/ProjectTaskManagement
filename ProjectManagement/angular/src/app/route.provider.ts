@@ -24,7 +24,7 @@ function configureRoutes(routesService: RoutesService) {
         order: 2,
         layout: eLayoutType.application,
       },
-      // Move Projects under Project Management
+      // Project Management
       {
         path: '/projects',
         name: '::Menu:Projects',
@@ -32,7 +32,7 @@ function configureRoutes(routesService: RoutesService) {
         layout: eLayoutType.application,
       },
       {
-        path: '/projecttasks',
+        path: '/tasks',
         name: '::Menu:ProjectTasks',
         parentName: '::Menu:ProjectManagement',
         layout: eLayoutType.application,
