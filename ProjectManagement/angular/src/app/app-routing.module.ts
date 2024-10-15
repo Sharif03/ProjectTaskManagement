@@ -28,6 +28,9 @@ const routes: Routes = [
   { path: 'projects', 
     loadChildren: () => import('./project/project.module').then(m => m.ProjectModule) 
   },
+  { path: 'projectstasks', 
+    loadChildren: () => import('./projecttask/projecttask.module').then(m => m.ProjecttaskModule) 
+  },
 ];
 
 @NgModule({

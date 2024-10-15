@@ -31,6 +31,12 @@ function configureRoutes(routesService: RoutesService) {
         parentName: '::Menu:ProjectManagement',
         layout: eLayoutType.application,
       },
+      {
+        path: '/projecttasks',
+        name: '::Menu:ProjectTasks',
+        parentName: '::Menu:ProjectManagement',
+        layout: eLayoutType.application,
+      },
     ]);
   };
 }
