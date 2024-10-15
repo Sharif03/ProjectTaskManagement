@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using ProjectManagement.EntityFrameworkCore;
@@ -12,9 +13,11 @@ using Volo.Abp.EntityFrameworkCore;
 namespace ProjectManagement.Migrations
 {
     [DbContext(typeof(ProjectManagementDbContext))]
-    partial class ProjectManagementDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241015131749_Create_ProjectTask_Table")]
+    partial class Create_ProjectTask_Table
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -53,9 +56,6 @@ namespace ProjectManagement.Migrations
                         .HasColumnType("text")
                         .HasColumnName("ExtraProperties");
 
-                    b.Property<bool>("IsApproved")
-                        .HasColumnType("boolean");
-
                     b.Property<DateTime?>("LastModificationTime")
                         .HasColumnType("timestamp without time zone")
                         .HasColumnName("LastModificationTime");
@@ -69,17 +69,12 @@ namespace ProjectManagement.Migrations
                         .HasMaxLength(128)
                         .HasColumnType("character varying(128)");
 
-                    b.Property<Guid>("ProjectId")
-                        .HasColumnType("uuid");
-
                     b.Property<int>("Status")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
 
                     b.HasIndex("Name");
-
-                    b.HasIndex("ProjectId");
 
                     b.ToTable("AppTasks", (string)null);
                 });
@@ -1936,15 +1931,6 @@ namespace ProjectManagement.Migrations
                     b.HasKey("TenantId", "Name");
 
                     b.ToTable("AbpTenantConnectionStrings", (string)null);
-                });
-
-            modelBuilder.Entity("ProjectManagement.ProjectTasks.ProjectTask", b =>
-                {
-                    b.HasOne("ProjectManagement.Projects.Project", null)
-                        .WithMany()
-                        .HasForeignKey("ProjectId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("Volo.Abp.AuditLogging.AuditLogAction", b =>

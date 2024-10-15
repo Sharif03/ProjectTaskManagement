@@ -1,4 +1,5 @@
 ﻿using ProjectManagement.Projects;
+using ProjectManagement.ProjectTasks;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,9 +15,12 @@ namespace ProjectManagement
     : IDataSeedContributor, ITransientDependency
     {
         private readonly IRepository<Project, Guid> _projectRepository;
-        public ProjectManagementDataSeederContributor(IRepository<Project, Guid> projectRepository)
+        private readonly IRepository<ProjectTask, Guid> _projectTaskRepository;
+        public ProjectManagementDataSeederContributor(IRepository<Project, Guid> projectRepository,
+            IRepository<ProjectTask, Guid> projectTaskRepository)
         {
             _projectRepository = projectRepository;
+            _projectTaskRepository = projectTaskRepository;
         }
         public async Task SeedAsync(DataSeedContext context)
         {
@@ -48,6 +52,13 @@ namespace ProjectManagement
                     },
                     autoSave: true
                 );
+
+                // Project tasks data seeding
+                var task1 = new ProjectTask(Guid.NewGuid(), "Create Book entity", "CB1", libraryProject.Id, ProjectTaskStatus.New, false);
+                await _projectTaskRepository.InsertAsync(task1, autoSave: true);
+
+                var task2 = new ProjectTask(Guid.NewGuid(), "Create Task entity", "CT1", taskProject.Id, ProjectTaskStatus.New, false);
+                await _projectTaskRepository.InsertAsync(task2, autoSave: true);
             }
         }
     }

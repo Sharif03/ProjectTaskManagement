@@ -5,6 +5,8 @@
     "Menu:Home": "Home",
     "Welcome": "Welcome",
     "LongWelcomeMessage": "Welcome to the application. This is a startup project based on the ABP framework. For more information, visit abp.io.",
+    "ProjectManagement:00001": "There is already an task with the same name: {name}",
+    "ProjectManagement:00002": "There is already an task with the same code: {code}",
     "Menu:ProjectManagement": "Project Management",
     "Menu:Projects": "Projects",
     "Actions": "Actions",
@@ -27,7 +29,10 @@
     "Enum:ProjectStatus.2": "Ongoing",
     "Enum:ProjectStatus.3": "Postponed",
     "Enum:ProjectStatus.4": "Finished",
-    "Enum:ProjectStatus.5": "Cancelled"
+    "Enum:ProjectStatus.5": "Cancelled",
+    "Enum:ProjectTaskStatus.0": "New",
+    "Enum:ProjectTaskStatus.1": "Inprogress",
+    "Enum:ProjectTaskStatus.2": "Done"
 
 
 
