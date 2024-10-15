@@ -1,11 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ProjectManagement.Projects;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
 using Volo.Abp.Data;
 using Volo.Abp.DependencyInjection;
 using Volo.Abp.EntityFrameworkCore;
-using Volo.Abp.EntityFrameworkCore.Modeling;
 using Volo.Abp.FeatureManagement.EntityFrameworkCore;
 using Volo.Abp.Identity;
 using Volo.Abp.Identity.EntityFrameworkCore;
@@ -26,7 +24,6 @@ public class ProjectManagementDbContext :
     ITenantManagementDbContext
 {
     /* Add DbSet properties for your Aggregate Roots / Entities here. */
-    public DbSet<Project> Projects { get; set; }
 
     #region Entities from the modules
 
@@ -79,12 +76,11 @@ public class ProjectManagementDbContext :
 
         /* Configure your own tables/entities inside here */
 
-        builder.Entity<Project>(p =>
-        {
-            p.ToTable(ProjectManagementConsts.DbTablePrefix + "Projects", ProjectManagementConsts.DbSchema);
-            p.ConfigureByConvention(); //auto configure for the base class props
-            p.Property(x => x.Name).IsRequired().HasMaxLength(128);
-            p.HasIndex(x => x.Name);
-        });
+        //builder.Entity<YourEntity>(b =>
+        //{
+        //    b.ToTable(ProjectManagementConsts.DbTablePrefix + "YourEntities", ProjectManagementConsts.DbSchema);
+        //    b.ConfigureByConvention(); //auto configure for the base class props
+        //    //...
+        //});
     }
 }
