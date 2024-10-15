@@ -4,6 +4,32 @@
     "AppName": "ProjectManagement",
     "Menu:Home": "Home",
     "Welcome": "Welcome",
-    "LongWelcomeMessage": "Welcome to the application. This is a startup project based on the ABP framework. For more information, visit abp.io."
+    "LongWelcomeMessage": "Welcome to the application. This is a startup project based on the ABP framework. For more information, visit abp.io.",
+    "Menu:ProjectManagement": "Project Management",
+    "Menu:Projects": "Projects",
+    "Actions": "Actions",
+    "Close": "Close",
+    "Delete": "Delete",
+    "Edit": "Edit",
+    "Search": "Search",
+    "NewProject": "New project",
+    "SearchItems": "Search with keyword...",
+    "Name": "Name",
+    "Code": "Code",
+    "StartDate": "StartDate",
+    "EndDate": "EndDate",
+    "Description": "Description",
+    "Status": "Status",
+    "AreYouSure": "Are you sure?",
+    "AreYouSureToDelete": "Are you sure you want to delete this item?",
+    "Enum:ProjectStatus.0": "Undefined",
+    "Enum:ProjectStatus.1": "New",
+    "Enum:ProjectStatus.2": "Ongoing",
+    "Enum:ProjectStatus.3": "Postponed",
+    "Enum:ProjectStatus.4": "Finished",
+    "Enum:ProjectStatus.5": "Cancelled"
+
+
+
   }
 }
