@@ -1,0 +1,32 @@
+.form-row {
+    display: flex;                  // Use flexbox to align form groups
+    justify-content: space-between; // Space out the form fields
+}
+
+.form-group {
+    margin-bottom: 15px;            // Add some margin between rows
+}
+
+.half-width {
+    flex: 0 0 48%;                  // Set width of each form group to 48%, allowing two fields per row
+}
+
+.full-width {
+    flex: 0 0 100%;                 // Set width to full for fields like description or status
+}
+
+.custom-modal .modal-content {
+    width: 80vw;                    // Wider modal to accommodate two fields
+    max-width: 80vw;
+}
+
+.custom-modal .modal-header,
+.custom-modal .modal-body,
+.custom-modal .modal-footer {
+    padding: 10px 15px;             // Reduce padding to save space
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;       // Align buttons to the right
+}
