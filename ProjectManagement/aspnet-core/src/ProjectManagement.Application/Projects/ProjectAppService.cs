@@ -8,6 +8,8 @@ using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Domain.Repositories;
 using Volo.Abp;
+using ProjectManagemente.ProjectTasks;
+using ProjectManagement.ProjectTasks;
 
 namespace ProjectManagement.Projects
 {
@@ -21,10 +23,12 @@ namespace ProjectManagement.Projects
       IProjectAppService //implement the IProjectAppService
     {
         private readonly IRepository<Project, Guid> _projectRepository;
-        public ProjectAppService(IRepository<Project, Guid> projectRepository)
+        private readonly IRepository<ProjectTask, Guid> _projectTaskRepository;
+        public ProjectAppService(IRepository<Project, Guid> projectRepository, IRepository<ProjectTask, Guid> projectTaskRepository)
             : base(projectRepository)
         {
             _projectRepository = projectRepository;
+            _projectTaskRepository = projectTaskRepository;
         }
 
         public override async Task<ProjectDto> CreateAsync(CreateUpdateProjectDto input)
@@ -84,6 +88,16 @@ namespace ProjectManagement.Projects
 
         public override async Task DeleteAsync(Guid id)
         {
+            // Get the tasks associated with the provided project ID
+            var tasksToDelete = await _projectTaskRepository.GetListAsync(t => t.ProjectId == id);
+
+            // Delete all tasks related to the project
+            if (tasksToDelete.Any())
+            {
+                await _projectTaskRepository.DeleteManyAsync(tasksToDelete);
+            }
+
+            // Now delete the project itself
             await _projectRepository.DeleteAsync(id);
         }
     }
