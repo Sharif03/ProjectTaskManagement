@@ -15,6 +15,22 @@ function configureRoutes(routesService: RoutesService) {
         order: 1,
         layout: eLayoutType.application,
       },
+
+      // Add the new Project Management parent route
+      {
+        path: '/project-management',
+        name: '::Menu:ProjectManagement',
+        iconClass: 'fas fa-tasks',
+        order: 2,
+        layout: eLayoutType.application,
+      },
+      // Move Projects under Project Management
+      {
+        path: '/projects',
+        name: '::Menu:Projects',
+        parentName: '::Menu:ProjectManagement',
+        layout: eLayoutType.application,
+      },
     ]);
   };
 }
