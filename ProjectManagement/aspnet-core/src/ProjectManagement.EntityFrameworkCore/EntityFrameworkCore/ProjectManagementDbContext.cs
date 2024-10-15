@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ProjectManagement.Projects;
+using ProjectManagement.ProjectTasks;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
 using Volo.Abp.Data;
@@ -27,6 +28,7 @@ public class ProjectManagementDbContext :
 {
     /* Add DbSet properties for your Aggregate Roots / Entities here. */
     public DbSet<Project> Projects { get; set; }
+    public DbSet<ProjectTask> Tasks { get; set; }
 
     #region Entities from the modules
 
@@ -85,6 +87,17 @@ public class ProjectManagementDbContext :
             p.ConfigureByConvention(); //auto configure for the base class props
             p.Property(x => x.Name).IsRequired().HasMaxLength(128);
             p.HasIndex(x => x.Name);
+        });
+
+        builder.Entity<ProjectTask>(t =>
+        {
+            t.ToTable(ProjectManagementConsts.DbTablePrefix + "Tasks", ProjectManagementConsts.DbSchema);
+            t.ConfigureByConvention(); //auto configure for the base class props
+            t.Property(x => x.Name).IsRequired().HasMaxLength(128);
+            t.HasIndex(x => x.Name);
+
+            // Add the mapping for the relation
+            t.HasOne<Project>().WithMany().HasForeignKey(x => x.ProjectId).IsRequired();
         });
     }
 }

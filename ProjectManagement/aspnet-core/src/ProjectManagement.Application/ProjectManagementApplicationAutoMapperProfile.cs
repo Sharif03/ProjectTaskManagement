@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ProjectManagement.Projects;
+using ProjectManagement.ProjectTasks;
 
 namespace ProjectManagement;
 
@@ -13,5 +14,8 @@ public class ProjectManagementApplicationAutoMapperProfile : Profile
 
         CreateMap<Project, ProjectDto>();
         CreateMap<CreateUpdateProjectDto, Project>();
+
+        CreateMap<ProjectTask, ProjectTaskDto>();
+        CreateMap<Project, ProjectLookupDto>();
     }
 }
