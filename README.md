@@ -86,4 +86,7 @@ Explore the API endpoints available for seamless integration and data manipulati
 - **Project Dashboard**: Centralized dashboard for a comprehensive overview of projects, tasks, and key metrics.
 - **Export Project Profile**: Export project data and summaries for reporting and sharing.
 
+## 📚 Resources
+For additional development resources, [check out the ABP Framework Getting Started Guide](https://abp.io/get-started)
+
 ---
