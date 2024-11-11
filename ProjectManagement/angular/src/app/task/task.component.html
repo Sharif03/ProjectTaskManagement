@@ -11,7 +11,7 @@
           <!-- Search bar (on the left) -->
           <div class="col-md-4">
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="{{ '::SearchProjects' | abpLocalization }}" 
+              <input type="text" class="form-control" placeholder="{{ '::SearchTasks' | abpLocalization }}" 
               [(ngModel)]="searchTerm" (click)="searchProjectTasks()" />
             </div>
           </div>
@@ -44,7 +44,7 @@
           <div class="col-md-2 text-lg-end pt-2">
             <button id="create" class="btn btn-primary" type="button" (click)="createProjectTask()">
               <i class="fa fa-plus me-1"></i>
-              <span>{{ "::NewProjectTask" | abpLocalization }}</span>
+              <span>{{ "::NewTask" | abpLocalization }}</span>
             </button>
           </div>
         </div>
@@ -134,7 +134,7 @@
   
 <abp-modal [(visible)]="isModalOpen">
     <ng-template #abpHeader>
-        <h3>{{ (selectedProjectTask.id ? '::Edit' : '::NewProjectTask') | abpLocalization }}</h3>
+        <h3>{{ (selectedProjectTask.id ? '::Edit' : '::NewTask') | abpLocalization }}</h3>
     </ng-template>
     
     <!-- Form start -->

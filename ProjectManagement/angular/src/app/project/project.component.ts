@@ -41,7 +41,10 @@ export class ProjectComponent implements OnInit {
   ) {}
   
   ngOnInit() {
-    const projectCreator = (query) => this.projectService.getFiteredProjectList({ ...query, ...this.filterRequest });
+    const projectCreator = (query) => this.projectService.getFiteredProjectList({ 
+      ...query, 
+      ...this.filterRequest });
+      
     this.list.hookToQuery(projectCreator).subscribe((response) => {
       this.project = response;
     });
