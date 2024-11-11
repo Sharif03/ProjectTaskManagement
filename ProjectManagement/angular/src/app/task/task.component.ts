@@ -91,8 +91,8 @@ export class TaskComponent implements OnInit {
 
   // Handle multi-select project change
   searchProjectTasks() {
-    this.filterRequest.projectIds = this.selectedProjectIds;
     this.filterRequest.filter = this.searchTerm;
+    this.filterRequest.projectIds = this.selectedProjectIds;
     this.list.getWithoutPageReset();
   }
 
