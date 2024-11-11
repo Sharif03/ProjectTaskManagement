@@ -6,6 +6,13 @@ Welcome to the **Project Management System** repository, a streamlined platform 
 
 This application is built to efficiently handle **Project** and **Task Management** needs. Users can create and organize projects, assign tasks, track their status, and leverage powerful search and filtering tools for easy management.
 
+## 🛠️ Technologies Used
+
+- **Backend**: ASP.NET Core with ABP Framework (Multi-layer)
+- **Database**: Entity Framework Core with PostgreSQL
+- **Frontend**: Angular, TypeScript, HTML, CSS
+- **Styling**: ngbootstrap for responsive and modern UI
+
 ## 🌐 API Endpoints
 
 Explore the API endpoints available for seamless integration and data manipulation:
